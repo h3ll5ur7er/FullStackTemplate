@@ -38,9 +38,10 @@ All tools and entrypoints you might need commonly are encapsulated in justfiles:
 - `just backed <cmd>`: backend related commands
 - `just cli <cmd>`: cli related commands
 - `just frontend <cmd>`: frontend related commands
-- `just all-test`: run all test
-- `just all-lint`: lint all projects
-- `just all-generate-openapi-client`: generate openapi client for all projects
+- `just test`: run all test
+- `just lint`: lint all projects
+- `just openapi`: generate openapi client for all projects
+- `just build`: codegen, typecheck, lint, test and build all projects
 
 #### `just backend <cmd>`
 

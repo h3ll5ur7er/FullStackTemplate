@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
-import { StatusService } from '../../../api';
 import { map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { StatusService } from '@api';
 
 @Component({
   selector: 'app-status',

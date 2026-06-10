@@ -1,9 +1,8 @@
 from fastapi import APIRouter
 from typing import Literal
+from pydantic import BaseModel
 
 router = APIRouter()
-
-from pydantic import BaseModel
 
 class StatusResponse(BaseModel):
     status: Literal["ok", "error"]
