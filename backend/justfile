@@ -10,6 +10,9 @@ run *args:
 serve:
     uv run my_fullstack_template
 
+export-openapi:
+    uv run export_openapi > ../openapi.json
+
 test:
     uv run pytest
 

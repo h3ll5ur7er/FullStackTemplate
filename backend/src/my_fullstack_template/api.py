@@ -28,7 +28,6 @@ async def lifespan(app: FastAPI):
     yield
     # Perform any shutdown tasks here
 NAME = "My Fullstack Template API"
-print(f"Initializing {NAME}...")
 app = FastAPI(title=NAME, lifespan=lifespan, generate_unique_id_function=endpoint_name_generator)
 app.add_middleware(
     CORSMiddleware,
@@ -46,7 +45,7 @@ def read_root():
 
 @app.exception_handler(404)
 def custom_404_handler(request, exc):
-    if not "." in request.url.path:
+    if "." not in request.url.path:
         return FileResponse(FRONTEND_STATIC_DIR + "index.html")
     try:
         path = FRONTEND_STATIC_DIR + request.scope["path"].lstrip("/")
@@ -63,3 +62,7 @@ def main():
     import uvicorn
     port = int(os.getenv("PORT", 8000))
     uvicorn.run("my_fullstack_template.api:app", host="0.0.0.0", port=port, reload=True)
+
+def export_openapi() -> str:
+    import json
+    print(json.dumps(app.openapi(), indent=2))

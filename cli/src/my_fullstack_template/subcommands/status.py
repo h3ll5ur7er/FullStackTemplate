@@ -1,10 +1,11 @@
-from my_fullstack_template.di.container import AppContainer
 from typer import Typer
 from rich.console import Console
 from ..helpers import coro
 from ..di.container import get_container
-from ..api_client import Client
-from ..api_client.api.status import get_status as get_status_api
+try:
+    from ..api_client.api.status import get_status as get_status_api
+except (Exception) as e:
+    print("Unable to import api client. Did you run th codegen?", e)
 
 cli = Typer(name="status", no_args_is_help=True, help="Check the status of the API server")
 console = Console()

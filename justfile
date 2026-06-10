@@ -15,23 +15,32 @@ install:
     @just cli install
     @just frontend install
 
-all-test:
+test:
     @just backend test
     @just cli test
     @just frontend test
 
-all-lint:
+lint:
     @just backend lint
     @just cli lint
     @just frontend lint
     
 
-all-clean:
+clean:
     @just backend clean
     @just cli clean
     @just frontend clean
+
+build:
+    @just install
+    @just openapi
+    @just lint
+    @just test
+    @just frontend build
+
     
-all-generate-openapi-client:
+openapi:
+    @just backend export-openapi
     @just cli generate-openapi-client
     @just frontend generate-openapi-client
     

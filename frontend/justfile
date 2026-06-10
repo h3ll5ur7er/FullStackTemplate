@@ -10,6 +10,7 @@ _nvm *command:
     {{command}}
 
 install:
+    export NVM_DIR="${NVM_DIR:-$HOME/.nvm}" && source "$NVM_DIR/nvm.sh" && nvm install
     just _nvm "npm install"
 
 serve:
